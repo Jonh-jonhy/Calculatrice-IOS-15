@@ -32,7 +32,7 @@ digits.forEach( digit =>{
         if (digit.innerText === ',') {
             if (terme === '' || terme === '0') {
 
-                terme = ' 0,'
+                terme = '0.'
                 console.log(terme)
                 updateDisplay()
                 return
