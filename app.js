@@ -54,7 +54,7 @@ operations.forEach( operation =>{
 function updateDisplay(){
     
     if (terme === "") {
-        bigScreen.innerHTML = '0'
+        bigScreen.innerText = '0'
         return
     }
 
