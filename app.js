@@ -29,6 +29,13 @@ actions.forEach( action =>{
 
 digits.forEach( digit =>{
     digit.addEventListener('click', (e)=>{
+
+        // si l'utilisateur tape 0 plusieurs fois on bloque
+        if (digit.innerText == '0' && terme === '0') {
+            return
+        }
+
+        // si l'utilisateur veut un nombre decimal
         if (digit.innerText === ',') {
             if (terme === '' || terme === '0') {
 
