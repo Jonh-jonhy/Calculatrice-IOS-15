@@ -58,6 +58,9 @@ operations.forEach( operation =>{
     operation.addEventListener('click', ()=>{
         console.log(operation.innerHTML)
     })
+    /**
+     *  pour les operateurs +, -, /, x ajouter juste a terme et utiliser une methode calculer qui decoupe la chaine et fait les calcules
+     *  */
 })
 
 
