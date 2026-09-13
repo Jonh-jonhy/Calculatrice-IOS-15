@@ -6,6 +6,7 @@ const actions = document.querySelectorAll('.action')
 
 let result = 0
 let terme = ""
+let decimal = false
 
 
 
@@ -14,6 +15,7 @@ actions.forEach( action =>{
         switch (action.innerHTML){
             case 'AC':
                 terme = ""
+                decimal = false
                 updateDisplay()
                 break
             case '←':
@@ -35,14 +37,15 @@ digits.forEach( digit =>{
         }
 
         // si l'utilisateur veut un nombre decimal
-        if (digit.innerText === ',') {
+        if (digit.innerText === '.') {
             if (terme === '' || terme === '0') {
-
                 terme = '0.'
                 updateDisplay()
                 return
+            }else if(isDecimal()){
+                console.log(isDecimal())
+                return
             }
-            return
         }
 
         terme = terme + digit.innerText
@@ -56,8 +59,12 @@ operations.forEach( operation =>{
     })
 })
 
+
+/**
+ * Met a jours l'ecran de la calculatrice
+ * @returns 
+ */
 function updateDisplay(){
-    
     if (terme === "") {
         bigScreen.innerText = '0'
         return
@@ -67,3 +74,7 @@ function updateDisplay(){
     console.log(terme)
 }
 
+
+function isDecimal(){
+    return terme.includes('.')
+}
