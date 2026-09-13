@@ -20,7 +20,6 @@ actions.forEach( action =>{
                 let a = terme.split('')
                 a.pop()
                 terme = a.join("")
-                console.log(terme)
                 updateDisplay()
                 break;
         }
@@ -31,7 +30,7 @@ digits.forEach( digit =>{
     digit.addEventListener('click', (e)=>{
 
         // si l'utilisateur tape 0 plusieurs fois on bloque
-        if (digit.innerText == '0' && terme === '0') {
+        if (digit.innerText === '0' && terme === '') {
             return
         }
 
@@ -40,13 +39,12 @@ digits.forEach( digit =>{
             if (terme === '' || terme === '0') {
 
                 terme = '0.'
-                console.log(terme)
                 updateDisplay()
                 return
             }
-            console.log('.')
             return
         }
+
         terme = terme + digit.innerText
         updateDisplay()
     })
@@ -66,6 +64,6 @@ function updateDisplay(){
     }
 
     bigScreen.innerHTML = terme
-    console.log(bigScreen.innerHTML)
+    console.log(terme)
 }
 
