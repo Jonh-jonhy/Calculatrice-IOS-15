@@ -1,4 +1,4 @@
-import {isDecimal, updateDisplay} from './function.ts'
+import {isDecimal, updateDisplay} from './function.js'
 
 const bigScreen = document.querySelector('.firsrtScreen')
 
@@ -59,7 +59,7 @@ operations.forEach( operation =>{
         console.log(operation.innerHTML)
     })
     /**
-     *  pour les operateurs +, -, /, x ajouter juste a terme et utiliser une methode calculer qui decoupe la chaine et fait les calcules
+     *  pour les operateurs +, -, /, x ajouter juste a terme et utiliser une methode calculer() qui decoupe la chaine et fait les calcules
      *  */
 })
 
