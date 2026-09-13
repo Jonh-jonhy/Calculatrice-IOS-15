@@ -1,7 +1,5 @@
 import {isDecimal, updateDisplay} from './function.js'
 
-const bigScreen = document.querySelector('.firsrtScreen')
-
 const digits = document.querySelectorAll('.digit')
 const operations = document.querySelectorAll('.operation')
 const actions = document.querySelectorAll('.action')
@@ -18,13 +16,13 @@ actions.forEach( action =>{
             case 'AC':
                 terme = ""
                 decimal = false
-                updateDisplay()
+                updateDisplay(terme)
                 break
             case '←':
                 let a = terme.split('')
                 a.pop()
                 terme = a.join("")
-                updateDisplay()
+                updateDisplay(terme)
                 break;
         }
     })
@@ -42,15 +40,15 @@ digits.forEach( digit =>{
         if (digit.innerText === '.') {
             if (terme === '' || terme === '0') {
                 terme = '0.'
-                updateDisplay()
+                updateDisplay(terme)
                 return
-            }else if(isDecimal()){
+            }else if(isDecimal(terme)){
                 return
             }
         }
 
         terme = terme + digit.innerText
-        updateDisplay()
+        updateDisplay(terme)
     })
 })
 

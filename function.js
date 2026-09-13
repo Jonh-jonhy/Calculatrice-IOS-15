@@ -1,8 +1,11 @@
 /**
  * Met a jours l'ecran de la calculatrice
+ * @param {string} terme 
  * @returns 
  */
-export function updateDisplay(){
+export function updateDisplay(terme){
+    const bigScreen = document.querySelector('.firsrtScreen')
+
     if (terme === "") {
         bigScreen.innerText = '0'
         return
@@ -15,8 +18,9 @@ export function updateDisplay(){
 
 /**
  * Retourne true si le terme est decimal et false sinon
+ * @param {string} terme 
  * @returns {Boolean}
  */
-export function isDecimal(){
+export function isDecimal(terme){
     return terme.includes('.')
 }
