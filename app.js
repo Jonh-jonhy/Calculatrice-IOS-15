@@ -1,3 +1,5 @@
+import {isDecimal, updateDisplay} from './function.ts'
+
 const bigScreen = document.querySelector('.firsrtScreen')
 
 const digits = document.querySelectorAll('.digit')
@@ -43,7 +45,6 @@ digits.forEach( digit =>{
                 updateDisplay()
                 return
             }else if(isDecimal()){
-                console.log(isDecimal())
                 return
             }
         }
@@ -60,21 +61,3 @@ operations.forEach( operation =>{
 })
 
 
-/**
- * Met a jours l'ecran de la calculatrice
- * @returns 
- */
-function updateDisplay(){
-    if (terme === "") {
-        bigScreen.innerText = '0'
-        return
-    }
-
-    bigScreen.innerHTML = terme
-    console.log(terme)
-}
-
-
-function isDecimal(){
-    return terme.includes('.')
-}
