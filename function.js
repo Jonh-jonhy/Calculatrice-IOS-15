@@ -38,7 +38,6 @@ export function isIncompleted(terme){
         terme.endsWith('×') ||
         terme.endsWith("−") ||
         terme.endsWith("+") ||
-        terme.endsWith("%") ||
         terme.endsWith(".")
     ){
         return true

@@ -7,7 +7,7 @@ const actions = document.querySelectorAll('.action')
 let result = 0
 let terme = ""
 let isDecimal = false
-
+let isPourcentage = false
 
 
 actions.forEach( action =>{
@@ -16,6 +16,7 @@ actions.forEach( action =>{
             case 'AC':
                 terme = ""
                 isDecimal = false
+                isPourcentage = false
                 updateDisplay(terme)
                 break
             case '←':
@@ -25,13 +26,15 @@ actions.forEach( action =>{
                 updateDisplay(terme)
                 break;
             case '%':
-                if(!terme.includes('%') && isIncompleted(terme)){
+                if(!isPourcentage && !isIncompleted(terme)){
                     if (terme === "" || terme === "0") {
                         terme += '0%'
+                        isPourcentage = true
                         updateDisplay(terme)
                         break
                     }else{
                         terme += '%'
+                        isPourcentage = true
                         updateDisplay(terme)
                         break
                     }
@@ -75,9 +78,10 @@ digits.forEach( digit =>{
 operations.forEach( operation =>{
     operation.addEventListener('click', ()=>{
         isDecimal = false
-
+        isPourcentage = false
         if (operation.innerHTML === '=') {
             if(isIncompleted(terme)){
+                
                 return
             }else{
                 console.log(calculate(terme))
