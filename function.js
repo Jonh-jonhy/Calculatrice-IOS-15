@@ -24,3 +24,11 @@ export function updateDisplay(terme){
 export function isDecimal(terme){
     return terme.includes('.')
 }
+
+/**
+ * Calcule le resultat total du nombre en parametre
+ * @param {string} terme 
+ */
+export function calculate(terme){
+    return "voici le resultat: a developper plus tard "
+}

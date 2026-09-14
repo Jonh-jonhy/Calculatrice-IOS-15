@@ -1,4 +1,4 @@
-import {isDecimal, updateDisplay} from './function.js'
+import {isDecimal, updateDisplay, calculate} from './function.js'
 
 const digits = document.querySelectorAll('.digit')
 const operations = document.querySelectorAll('.operation')
@@ -54,6 +54,11 @@ digits.forEach( digit =>{
 
 operations.forEach( operation =>{
     operation.addEventListener('click', ()=>{
+        if (operation.innerHTML === '=') {
+            console.log(calculate(terme))
+            return
+        }
+
         if (terme === "") {
             terme = 0;
             terme += operation.innerText
