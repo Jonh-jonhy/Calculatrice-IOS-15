@@ -30,5 +30,5 @@ export function isDecimal(terme){
  * @param {string} terme 
  */
 export function calculate(terme){
-    return "voici le resultat: a developper plus tard "
+    return `voici le resultat: a developper plus tard ${terme}`
 }

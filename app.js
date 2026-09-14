@@ -55,8 +55,19 @@ digits.forEach( digit =>{
 operations.forEach( operation =>{
     operation.addEventListener('click', ()=>{
         if (operation.innerHTML === '=') {
-            console.log(calculate(terme))
-            return
+            if(
+                terme.endsWith('÷') |
+                terme.endsWith('×') |
+                terme.endsWith("−") |
+                terme.endsWith("+")
+            ){
+                return
+            }else{
+                console.log(calculate(terme))
+                console.log(!terme.endsWith("+"))
+                return
+            }
+            
         }
 
         if (terme === "") {
