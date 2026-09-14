@@ -30,6 +30,10 @@ actions.forEach( action =>{
                         terme += '0%'
                         updateDisplay(terme)
                         break
+                    }else{
+                        terme += '%'
+                        updateDisplay(terme)
+                        break
                     }
                 }else{
                     return
