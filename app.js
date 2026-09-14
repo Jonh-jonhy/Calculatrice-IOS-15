@@ -25,7 +25,7 @@ actions.forEach( action =>{
                 updateDisplay(terme)
                 break;
             case '%':
-                if(!terme.includes('%')){
+                if(!terme.includes('%') && isIncompleted(terme)){
                     if (terme === "" || terme === "0") {
                         terme += '0%'
                         updateDisplay(terme)
