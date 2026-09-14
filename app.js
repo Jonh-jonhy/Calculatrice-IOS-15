@@ -54,11 +54,22 @@ digits.forEach( digit =>{
 
 operations.forEach( operation =>{
     operation.addEventListener('click', ()=>{
-        console.log(operation.innerHTML)
-    })
-    /**
-     *  pour les operateurs +, -, /, x ajouter juste a terme et utiliser une methode calculer() qui decoupe la chaine et fait les calcules
-     *  */
-})
+        if (terme === "") {
+            terme = 0;
+            terme += operation.innerText
+            updateDisplay(terme)
+        }else if(
+            terme.endsWith('÷') |
+            terme.endsWith('×') |
+            terme.endsWith("−") |
+            terme.endsWith("+")
+        ){
+            return
+        }else{
+            terme += operation.innerText
+            updateDisplay(terme)
+        }
 
+    })
+})
 
