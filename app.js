@@ -20,6 +20,11 @@ actions.forEach( action =>{
                 updateDisplay(terme)
                 break
             case '←':
+                if (terme.endsWith('.')) {
+                    isDecimal = false
+                }else if(terme.endsWith('%')){
+                    isPourcentage = false
+                }
                 let a = terme.split('')
                 a.pop()
                 terme = a.join("")
@@ -55,7 +60,11 @@ digits.forEach( digit =>{
 
         // si l'utilisateur veut un nombre decimal
         if (digit.innerText === '.') {
-            if (isDecimal || isIncompleted(terme)) {
+            if (
+                isDecimal || 
+                isIncompleted(terme) || 
+                terme.endsWith("%")) 
+            {
                 return
             }else if (terme === '' || terme === '0') {
                 isDecimal = true
@@ -81,7 +90,7 @@ operations.forEach( operation =>{
         isPourcentage = false
         if (operation.innerHTML === '=') {
             if(isIncompleted(terme)){
-                
+
                 return
             }else{
                 console.log(calculate(terme))
