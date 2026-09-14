@@ -26,6 +26,12 @@ export function calculate(terme){
     return `voici le resultat: a developper plus tard ${terme}`
 }
 
+
+/**
+ * Verifie si l'expression se termine par un chiffre et non un operateur
+ * @param {string} terme 
+ * @returns boolean
+ */
 export function isIncompleted(terme){
     if(
         terme.endsWith('÷') ||

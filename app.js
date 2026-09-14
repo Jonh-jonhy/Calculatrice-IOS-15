@@ -24,6 +24,16 @@ actions.forEach( action =>{
                 terme = a.join("")
                 updateDisplay(terme)
                 break;
+            case '%':
+                if(!terme.includes('%')){
+                    if (terme === "" || terme === "0") {
+                        terme += '0%'
+                        updateDisplay(terme)
+                        break
+                    }
+                }else{
+                    return
+                }
         }
     })
 })
