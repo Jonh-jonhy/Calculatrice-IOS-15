@@ -32,3 +32,16 @@ export function isDecimal(terme){
 export function calculate(terme){
     return `voici le resultat: a developper plus tard ${terme}`
 }
+
+export function isIncompleted(terme){
+    if(
+        terme.endsWith('÷') ||
+        terme.endsWith('×') ||
+        terme.endsWith("−") ||
+        terme.endsWith("+")
+    ){
+        return true
+    }
+    return false
+
+}

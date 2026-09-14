@@ -1,4 +1,4 @@
-import {isDecimal, updateDisplay, calculate} from './function.js'
+import {isDecimal, updateDisplay, calculate, isIncompleted} from './function.js'
 
 const digits = document.querySelectorAll('.digit')
 const operations = document.querySelectorAll('.operation')
@@ -42,7 +42,7 @@ digits.forEach( digit =>{
                 terme = '0.'
                 updateDisplay(terme)
                 return
-            }else if(isDecimal(terme)){
+            }else if(isDecimal(terme) || isIncompleted(terme)){
                 return
             }
         }
@@ -56,10 +56,7 @@ operations.forEach( operation =>{
     operation.addEventListener('click', ()=>{
         if (operation.innerHTML === '=') {
             if(
-                terme.endsWith('÷') |
-                terme.endsWith('×') |
-                terme.endsWith("−") |
-                terme.endsWith("+")
+                isIncompleted(terme)
             ){
                 return
             }else{
@@ -74,12 +71,7 @@ operations.forEach( operation =>{
             terme = 0;
             terme += operation.innerText
             updateDisplay(terme)
-        }else if(
-            terme.endsWith('÷') |
-            terme.endsWith('×') |
-            terme.endsWith("−") |
-            terme.endsWith("+")
-        ){
+        }else if(isIncompleted(terme)){
             return
         }else{
             terme += operation.innerText
