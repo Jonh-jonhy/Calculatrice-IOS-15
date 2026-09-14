@@ -16,14 +16,7 @@ export function updateDisplay(terme){
 }
 
 
-/**
- * Retourne true si le terme est decimal et false sinon
- * @param {string} terme 
- * @returns {Boolean}
- */
-export function isDecimal(terme){
-    return terme.includes('.')
-}
+
 
 /**
  * Calcule le resultat total du nombre en parametre

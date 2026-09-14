@@ -1,4 +1,4 @@
-import {isDecimal, updateDisplay, calculate, isIncompleted} from './function.js'
+import {updateDisplay, calculate, isIncompleted} from './function.js'
 
 const digits = document.querySelectorAll('.digit')
 const operations = document.querySelectorAll('.operation')
@@ -6,7 +6,7 @@ const actions = document.querySelectorAll('.action')
 
 let result = 0
 let terme = ""
-let decimal = false
+let isDecimal = false
 
 
 
@@ -15,7 +15,7 @@ actions.forEach( action =>{
         switch (action.innerHTML){
             case 'AC':
                 terme = ""
-                decimal = false
+                isDecimal = false
                 updateDisplay(terme)
                 break
             case '←':
@@ -38,26 +38,32 @@ digits.forEach( digit =>{
 
         // si l'utilisateur veut un nombre decimal
         if (digit.innerText === '.') {
-            if (terme === '' || terme === '0') {
+            if (isDecimal || isIncompleted(terme)) {
+                return
+            }else if (terme === '' || terme === '0') {
+                isDecimal = true
                 terme = '0.'
                 updateDisplay(terme)
+                console.log(isDecimal)
                 return
-            }else if(isDecimal(terme) || isIncompleted(terme)){
-                return
+            }else{
+                isDecimal = true
+                terme = terme + digit.innerText
+                updateDisplay(terme)
             }
-        }
-
-        terme = terme + digit.innerText
-        updateDisplay(terme)
+        }else{
+            terme = terme + digit.innerText
+            updateDisplay(terme)
+        }   
     })
 })
 
 operations.forEach( operation =>{
     operation.addEventListener('click', ()=>{
+        isDecimal = false
+
         if (operation.innerHTML === '=') {
-            if(
-                isIncompleted(terme)
-            ){
+            if(isIncompleted(terme)){
                 return
             }else{
                 console.log(calculate(terme))
