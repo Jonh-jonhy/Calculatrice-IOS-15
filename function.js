@@ -11,8 +11,9 @@ export function updateDisplay(terme){
         return
     }
 
-    bigScreen.innerHTML = terme
-    console.log(terme)
+    bigScreen.innerText = terme
+    // console.log(terme)
+    console.log(JSON.stringify(terme))
 }
 
 
